@@ -1,0 +1,42 @@
+.redpacket{
+	width:100%;
+	height:100%;
+    
+}
+.header{
+	width:100%;
+	height:60px;
+	background:#51AFC9;
+	line-height:60px;
+	text-align:center;
+	position:relative;
+	font-size: 20px;
+    color: #FFFFFF;
+    position:fixed;
+    top:0;
+    left:0;
+}
+.arrowLeft{
+	width:13px;
+    height:22px;
+    position:absolute;
+    left:20px;
+    top:19px;
+}
+.redpacket_main{
+	width:100%;
+	margin-top:47px;
+}
+.redpacket_main .background{
+	width:100%;
+	height:auto;
+	/*margin-top:-13px;*/
+}
+*{
+  -webkit-touch-callout:none; /*系统默认菜单被禁用*/
+  -webkit-user-select:none; /*webkit浏览器*/
+  -khtml-user-select:none; /*早期浏览器*/
+  -moz-user-select:none;/*火狐*/
+  -ms-user-select:none; /*IE10*/
+  user-select:none;
+}

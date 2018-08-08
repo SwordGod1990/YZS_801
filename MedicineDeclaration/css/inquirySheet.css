@@ -1,0 +1,965 @@
+/*清除浮动*/
+.clearfix:after {
+    visibility: hidden;
+    display: block;
+    font-size: 0;
+    content: " ";
+    clear: both;
+    height: 0;
+}
+
+.clearfix {
+    *zoom: 1;
+}
+
+.fl {
+    float: left;
+}
+
+.fr {
+    float: right;
+}
+/*两端对齐*/
+.text_justify {
+    overflow: hidden;
+    text-align: justify;
+    text-align-last: justify;
+}
+.spacebetween {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-align: center;
+    -moz-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -moz-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: space-between;
+    justify-content: space-between;
+    -moz-box-pack: space-between;
+    -webkit--moz-box-pack: space-between;
+    box-pack: space-between;
+}
+.medicine_center {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-align: center;
+    -moz-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -moz-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+}
+
+.medicine_center_left {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-align: center;
+    -moz-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -moz-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: flex-start;
+    justify-content: flex-start;
+}
+
+.vertical_center {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-align: center;
+    -moz-box-align: center;
+    -ms-flex-align: center;
+    -webkit-box-pack: center;
+    -moz-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+}
+
+.vertical_center_left {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-align: center;
+    -moz-box-align: center;
+    -ms-flex-align: center;
+    -webkit-box-pack: center;
+    -moz-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: flex-start;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+}
+/*间距*/
+.mb22{
+    margin-bottom:22px;
+}
+.pt2{
+    padding-top:2px;
+}
+.pt8{
+    padding-top:8px;
+}
+.pt10{
+    padding-top: 10px;
+}
+.pr22{
+    padding-right:22px;
+}
+.pb120{
+    padding-bottom: 120px;
+}
+.mtf14{
+    margin-top: -14px;
+}
+.mr32{
+    margin-right: 32px;
+}
+/*省略号*/
+.ellipsis{
+    overflow: hidden;
+    text-overflow:ellipsis;
+    white-space: nowrap;
+}
+/*-----------药报单：创建询价单和编辑询价单-----------*/
+.statusBar_l,.statusBar_r{
+    position: fixed;
+}
+.statusBar_l{
+    width: 56.83%;
+    z-index: 1001;
+    -webkit-box-shadow: 4px -1px 5px rgba(0,0,0,.3);
+    -moz-box-shadow:4px -1px 5px rgba(0,0,0,.3);
+    box-shadow:4px -1px 5px rgba(0,0,0,.3);
+}
+.statusBar_r{
+    width: 43.17%;
+    z-index: 1000;
+}
+.statusBar_main {
+    position: relative;
+    height: 60px;
+    line-height: 60px;
+    background: #51afc9;
+}
+
+.statusBar_main .drugHead_arrowLeft {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 60px;
+    width: 62px;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);-webkit-tap-highlight-color:transparent;
+    cursor: pointer;
+}
+
+.statusBar_main .drugHead_arrowLeft i {
+    display: block;
+    width: 27px;
+    height:22px;
+    background: url(../img/icon-drug.png) no-repeat 0 0;
+    background-size: 100px 100px;
+    margin-left:22px;
+    margin-top: 19px;
+}
+
+.statusBar_main .drugHead_title {
+    display: block;
+    font-size: 20px;
+    color: #fff;
+    text-align: center;
+}
+
+/**预购药品**/
+.drugPre {
+    width: 56.83%;
+}
+.drugPre_main{
+    padding-top:60px;
+}
+.drugFixed{
+    width: 56.83%;overflow: hidden;position: fixed;bottom:0;top:60px;
+}
+.drugScroll{
+    height: 100%;overflow: auto;
+}
+.drugPre_top{
+    padding:22px 22px 20px 22px;
+    font-size: 18px;
+    color: #333;
+    border-bottom: 2px solid #51afc9;
+}
+.drugPre_top .title{
+    width:65px;
+    margin-left: 10px;
+}
+.drugPre_top .drugNameWrap{
+    position: relative;
+    cursor: pointer;
+}
+.drugPre_top .contFlex{
+    margin-left: 15px;
+    flex: 1;
+}
+.drugPre_top .numberMl{
+    margin-left:32px;
+}
+.drugPre_top .titleAdress{
+    font-size: 16px;
+    color: #999;
+    cursor: pointer;
+}
+.nameDefault{
+    color: #b5b5b5;
+}
+.addressIcon{
+    display: block;
+    width: 12px;
+    height: 16px;
+    background:url("../img/icon5.png") no-repeat;
+    background-size: 100%;
+}
+.editIconBtn{
+    position: absolute;
+    top: -18px;
+    right: -22px;
+    width: 40px;
+    height: 40px;
+    box-sizing: border-box;
+    padding: 22px 0 0 0;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);-webkit-tap-highlight-color:transparent;
+}
+.editIcon{
+    display: block;
+    width: 16px;
+    height: 17px;
+    background:url("../img/icon4.png") no-repeat;
+    background-size: 100%;
+}
+.leaveWordIcon{
+    display: block;
+    width: 13px;
+    height: 12px;
+    background:url("../img/icon3.png") no-repeat;
+    background-size: 100%;
+}
+.leaveWordArea{
+    display: block;
+    border: 1px solid #d9d9d9;
+    border-radius: 6px;
+    box-sizing: border-box;
+    width: 100%;
+    height: 60px;
+    padding: 10px;
+    font-size: 16px;
+    color: #333;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);-webkit-tap-highlight-color:transparent;
+}
+.drugPre_content{}
+.purchaseDrug{
+    padding-left: 22px;
+    padding-bottom: 119px;
+}
+.purchaseDrug li{
+    border-bottom: 1px solid #d9d9d9;
+    padding-top: 13px;
+}
+.purchaseDrug .drugMessage{
+    line-height: 25px;
+    width: 53%;
+}
+.purchaseDrug .drugMessage h2{
+    font-size: 18px;
+    color: #333;
+    margin-bottom: 5px;
+    word-wrap:break-word;
+    word-break:break-all;
+}
+.purchaseDrug .drugMessage .spec,
+.purchaseDrug .drugMessage .factory{
+    font-size: 14px;
+    color: #999;
+    word-wrap:break-word;
+    word-break:break-all;
+}
+.purchaseDrug .drugMessage,
+.purchaseDrug .drugMessage .factory{
+    margin-bottom:5px;
+}
+.purchaseDrug .drugHandle{
+    width: 47%;
+    justify-content: flex-end;
+}
+.purchaseDrug .drugCount{
+
+}
+.purchaseDrug .drugCount .jian,
+.purchaseDrug .drugCount .jia{
+    width: 55px;
+    height: 40px;
+    border: 1px solid #d9d9d9;
+    cursor: pointer;
+}
+.purchaseDrug .drugCount .jian{
+    border-bottom-left-radius: 6px;
+    border-top-left-radius: 6px;
+}
+.purchaseDrug .drugCount .jia{
+    border-bottom-right-radius: 6px;
+    border-top-right-radius: 6px;
+}
+.purchaseDrug .drugCount .jianIcon{
+    display: block;
+    width: 20px;
+    height: 2px;
+    background:url("../img/icon7.png") no-repeat;
+    background-size: 100%;
+}
+.purchaseDrug .drugCount .num_input{
+    display: block;
+    width: 70px;
+    height: 40px;
+    border: 1px solid #d9d9d9;
+    margin: 0 5px;
+    font-size: 18px;
+    color: #666;
+    text-align: center;
+    -webkit-appearance: none;
+}
+.purchaseDrug .drugCount .jiaIcon{
+    display: block;
+    width: 20px;
+    height: 20px;
+    background:url("../img/icon6.png") no-repeat;
+    background-size: 100%;
+}
+.purchaseDrug .drugDel{
+    padding: 20px;
+    box-sizing: border-box;
+    margin-left: 5px;
+    cursor: pointer;
+}
+.purchaseDrug .drugDelIcon{
+    display: block;
+    width: 22px;
+    height: 22px;
+    background:url("../img/icon10.png") no-repeat;
+    background-size: 100%;
+}
+.drugBtnWrap{
+    position: fixed;
+    bottom: 0;
+    width: 56.83%;
+    height: 70px;
+    background: #fff;
+    border-top: 1px solid #d9d9d9;
+    padding-left: 22px;
+    box-sizing: border-box;
+}
+.drugTotal{
+    flex: 1;
+    font-size: 18px;
+    color: #333; 
+    width:56.83%;
+    height:56px;
+    line-height:56px;
+    text-align:center;
+    position:fixed;
+    bottom:70px;
+    background:#F9F9F9;
+}
+.drugTotal em{
+    color: #e06e6e;
+}
+.drugBtnWrap .drugBtn{
+    width: 160px;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    font-size: 20px;
+    color: #fff;
+    border-radius: 6px;
+    cursor: pointer;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+    -webkit-tap-highlight-color:transparent;
+}
+.drugBtnWrap .preserve{
+    background: #51afc9;
+}
+.drugBtnWrap .enjoy{
+    background: #e06e6e;
+    margin: 0 11px 0 22px;
+}
+
+    /**药品选择**/
+.drugChoice {
+    width: 43.17%;
+}
+.rightWrap{
+    padding-top: 60px;
+    position: fixed;
+    width: 43.17%;
+    height: 100%;
+    background: #e6e6e6;
+    border-left: 1px solid #ccc;
+}
+/*.typeListWrap{
+    width: 22%;height: 100%;overflow: hidden;float: left;/!* background: #f00; *!/
+}
+.typeList{
+    width: 107%;
+    padding: 0 4% 0 0;
+    overflow-y: scroll;
+    height: 100%;
+}*/
+.typeListWrap{
+    width: 9.71%;
+    /* height: 100%; */
+    overflow: hidden;
+    float: left;
+    position: fixed;
+    bottom: 0;
+    top: 60px;
+    z-index: 30;
+}
+.typeList{
+    overflow: auto;
+    height: 100%;
+}
+.typeList li{
+    /*width: 90%;*/
+    height: 60px;
+    padding: 0 10px 0 8px;
+    box-sizing: border-box;
+    border-right: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    font-size: 18px;
+    color: #333;
+    background: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    cursor: pointer;
+}
+.typeList li.typeLiCur{
+    background: #e6e6e6;
+    border-left: 5px solid #e06e6e;
+    border-right: 1px solid #e6e6e6;
+    border-right: none;
+    padding: 0 10px 0 10px;
+    margin-left: -1px;
+}
+/*.searchWrap{
+    width: 78%;
+    padding: 0 10px 0 5px;
+    box-sizing: border-box;
+    position: relative;
+    left:0;
+}*/
+.searchMain{
+    position: fixed;
+    border: 1px solid #d9d9d9;
+    background: #fff;
+    border-radius: 6px;
+    height: 40px;
+    line-height: 40px;
+    width: 31.34%;
+    box-sizing: border-box;
+    margin: auto;
+    right: 10px;
+    top: 70px;
+    padding: 0 7px;
+    z-index: 20;
+}
+.searchMain .line{
+    height: 20px;
+    border-right: 1px solid #dfdfdf;
+}
+.glassIcon{
+    display: block;
+    width: 18px;
+    height: 18px;
+    background:url("../img/icon8.png") no-repeat;
+    background-size: 100%;
+}
+.searchInput{
+    padding:0 7px 0 5px;
+    font-size: 16px;
+    color: #333;
+    height: 20px;
+    line-height: 20px;
+    border: none;
+    outline: none;
+    flex: 1;
+    width: 75%;
+}
+/*修改提示文字的颜色*/
+textarea.leaveWordArea::-webkit-input-placeholder,
+input.searchInput::-webkit-input-placeholder { /* WebKit browsers */
+    color: #b5b5b5;
+}
+textarea.leaveWordArea::-webkit-input-placeholder,
+input.searchInput:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+    color: #b5b5b5;
+}
+textarea.leaveWordArea::-webkit-input-placeholder,
+input.searchInput::-moz-placeholder { /* Mozilla Firefox 19+ */
+    color: #b5b5b5;
+}
+textarea.leaveWordArea::-webkit-input-placeholder,
+input.searchInput:-ms-input-placeholder { /* Internet Explorer 10+ */
+    color: #b5b5b5;
+}
+.searchInputClear{
+    margin-right: 7px;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);  -webkit-tap-highlight-color:transparent;
+}
+.searchInputClearIcon{
+    display: block;
+    width: 22px;
+    height: 22px;
+    background:url("../img/icon14.png") no-repeat;
+    background-size: 100%;
+}
+.barcode{
+    padding-top: 4px;
+    padding-left: 7px;
+}
+.barcodeIcon{
+    display: block;
+    width: 18px;
+    height: 16px;
+    background:url("../img/icon9.png") no-repeat;
+    background-size: 100%;
+    margin: 0 auto;
+}
+.barcode.barcodeBlue .barcodeIcon{
+    background:url("../img/icon12.png") no-repeat;
+    background-size: 100%;
+}
+.barcodeIcon_default{ background-image: url("../img/icon12_default.png")!important;}
+.barcodeText_default{color: #999!important;}
+.barcodeText{
+    font-size: 12px;
+    color: #999;
+    line-height: 20px;
+    white-space: nowrap;
+}
+.barcode.barcodeBlue .barcodeText{
+    color: #51afc9;
+}
+.searchReasult{
+    /* padding-top: 60px; */
+    /* height: 100%; */
+    overflow: hidden;
+    position: fixed;
+    width: 31.49%;
+    right: 10px;
+    bottom: 0;
+    top: 120px;
+    z-index: 19;
+}
+.searchBox{
+    height: 100%;
+    overflow: auto;
+}
+.searchReasult dl{
+    margin-bottom: 10px;
+}
+.letterWrap{
+    height:20px;
+    line-height:20px;
+    margin-bottom: 8px;
+    font-size: 16px;
+    color: #666;
+    width: 100%;
+}
+.drugListWrap{
+    background: #fff;
+    border-radius: 6px;
+    padding: 10px;
+    box-sizing: border-box;
+}
+.drugList{
+    border-bottom: 1px solid #d9d9d9;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    cursor: pointer;
+}
+.nodataList{
+    text-align: center;
+    font-size: 18px;
+    line-height: 30px;
+    color: #999;
+}
+.drugList:first-child{
+    padding-top: 0;
+}
+.drugListWrap .drugMessage{
+    width: 53%;
+}
+.drugListWrap .drugMessage h2{
+    font-size: 18px;
+    color: #333;
+    line-height: 24px;
+}
+.drugListWrap .drugMessage .spec,
+.drugListWrap .drugMessage .factory{
+    font-size: 14px;
+    color: #999;
+    line-height: 22px;
+    word-wrap:break-word;
+    word-break:break-all;
+}
+.drugListWrap .drugHandle{
+    width: 47%;
+    /*justify-content: flex-end;*/
+}
+.drugListWrap .drugHandle .drugInventory{
+    flex: 1;
+}
+.drugListWrap .drugInventory .iconBox{
+    display: block;
+    width: 14px;
+    height: 16px;
+    background:url("../img/icon2.png") no-repeat 0 2px;
+    background-size: 100%;
+    margin-right: 9px;
+}
+.drugListWrap .drugInventory.drugInventoryRed .iconBox{
+    background:url("../img/icon1.png") no-repeat 0 2px;
+    background-size: 100%;
+}
+.drugListWrap .drugInventory .inventoryNum{
+    font-size: 14px;
+    color: #666;
+    word-wrap:break-word;
+    word-break:break-all;
+    width: 77%;
+}
+.drugListWrap .drugInventory.drugInventoryRed .inventoryNum{
+    color: #e06e6e;
+}
+.drugAdd{
+    padding:20px 0 20px 15px;
+    box-sizing: border-box;
+    margin-left: 5px;
+    justify-content: flex-end;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);  -webkit-tap-highlight-color:transparent;
+}
+.drugAdd .drugAddIcon{
+    display: block;
+    width: 22px;
+    height: 22px;
+    background:url("../img/icon11.png") no-repeat;
+    background-size: 100%;
+}
+/*预购药品：无数据*/
+.drugNoDataWrap{
+    display: table;width: 100%;min-height:400px;height: 100%;
+}
+.drugNoData{
+    display: table-cell;vertical-align: middle;text-align: center;
+}
+.drugNoDataIcon{
+    width: 102px;height: 52px;background: url('../img/icon13.png');background-size: 100%;/* display: block; */margin: 0 auto 10px auto;
+}
+.drugNoDataText{
+    font-size: 18px;color: #999;
+}
+/*删除弹窗*/
+.delPop{width: 100%; height: 100%; overflow: hidden; background: rgba(0,0,0,.5); position: absolute; top:-60px; left:0; z-index: 99999; display: none;}
+.delBox{width: 40%; height: 250px; background: #fff; position: absolute; z-index: 999999; top:50%; left:30%; margin-top: -125px; border-radius: 6px;}
+.delTit{height: 55px;  width: 100%; font-size: 20px; color: #333; text-align: center; line-height: 55px; border-radius: 6px 6px 0px 0px;}
+.delMain{height: 133px;  width: 100%; font-size: 18px; color: #666; text-align: center; line-height: 133px; border-bottom: 1px solid #d9d9d9; border-top: 1px solid #d9d9d9;}
+.delBtns{width: 100%; height: 60px; text-align: center; box-sizing: border-box;}
+.delBtns button{outline: none; border:none; width: 112px; height: 38px; border: 1px solid #51afc9; border-radius: 6px; font-size: 18px; color:#51afc9; background: #fff; margin-top:11px;}
+.delCancel{margin-right:22px;}
+.delBtns button.delConfirm{color: #fff; background-color:#51afc9;}
+/*返回弹窗*/
+.delPop.backBox{top:0;}
+/*编辑收货地址弹窗*/
+.editPop{width: 100%; height: 100%; overflow: hidden; background: rgba(0,0,0,.5); position: absolute; top:0px; left:0; z-index:1001;}
+.editBox{width: 60%; height: 400px; background: #fff; position: absolute; z-index: 999; top:50%; left:20%; margin-top: -200px; border-radius: 6px;}
+.editTit{height: 54px;  width: 100%; font-size: 20px; color: #434343; text-align: center; line-height: 54px; border-radius: 6px 6px 0px 0px; border-bottom: 1px solid #d9d9d9; position: relative;}
+.editTit span{display:inline-block; position: absolute; top:2px; font-size: 18px; color: #51afc9; font-weight: normal;width: 80px;cursor: pointer;-webkit-tap-highlight-color: rgba(0,0,0,0);  -webkit-tap-highlight-color:transparent;}
+.edit_cancel{left:22px;text-align: left; cursor:pointer;}
+.edit_confirm{right:22px;text-align: right; cursor:pointer;}
+.ipt_area{cursor: pointer;}
+.editMain{height: 345px;  width: 100%; font-size: 18px; color: #666; border-radius: 0 0 6px 6px;}
+.editUl{margin:40px auto 0 auto;    width: 510px;}
+.editUl li{margin-bottom: 20px;}
+/*.editUl span{display: inline-block; width: 81px; text-align: justify;text-align-last:justify; text-justify:distribute}*/
+.editUl span{display: inline-block; width: 81px;}
+.editUl span strong{display: inline-block;font-weight: normal;}
+.st{width: 27px;}
+.str{width: 20px;}
+.st1,.st4{text-align: left;}
+.st2,.st5,.st6{text-align: center;}
+.st3,.st7{text-align: right;}
+.ipt{width: 398px; height: 38px; border:1px solid #d9d9d9; border-radius: 6px; font-size: 18px; color: #333; box-sizing: border-box; padding-left:14px; margin-left:10px; outline: none; -webkit-appearance: none; -moz-appearance: none; -ms-appearance: none;-webkit-tap-highlight-color: rgba(0,0,0,0);-webkit-tap-highlight-color:transparent;}
+
+
+
+/*----------------------------------请选择所在地区-----------------------------------*/
+@charset "UTF-8";
+
+html {
+    height: 100%;
+}
+body {
+    margin: 0;
+    height: 100%;
+}
+* {
+    margin: 0;
+    padding: 0;
+}
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+#areaLabel {
+    width: 100%;
+    height: 40px;
+    font-size: 14px;
+    color: #000;
+    display: flex;
+    align-items: center;
+    flex-wrap: nowrap;
+    justify-content: center;
+    border-bottom: 1px solid #aaa;
+    padding-right: 1em;
+    padding-left: 1em;
+    position: relative;
+}
+#areaLabel::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: calc(1em + 18px / 2);
+    width: 18px;
+    height: 18px;
+    border-width: 1px;
+    border-style: solid solid none none;
+    border-color: #000;
+    transform: rotate(45deg) translateY(-50%);
+    transform-origin: center;
+}
+#areaLabel span {
+    width: 80px;
+}
+#areaLabel input {
+    flex: 1;
+    border: none;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+#addressSelectWrapper {
+    display: none;
+    position: fixed;
+    z-index:9999;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+}
+#addressSelect {
+    z-index: 999;
+    position: absolute;
+    top: 50%;
+    left: 20%;
+    margin-top: -200px;
+    /* margin-left: -307px; */
+    width: 60%;
+    height: 400px;
+    background-color: #fff;
+    border-radius: 6px;
+
+}
+#addressSelect .tip {
+    position: relative;
+    height: 55px;
+    line-height: 55px;
+    width: 100%;
+    border-bottom: 1px solid #dedede;
+    text-align: center
+}
+#addressSelect .tip span:nth-of-type(2) {
+    /*width: 100%;*/
+    height: 55px;
+    line-height: 55px;
+    text-align: center;
+    font-size: 20px;
+    font-weight: normal;
+    color: #434343;
+    display: inline-block;
+}
+/*更改的样式*/
+#addressSelect .tip .addSel_cancel {
+    /*width: 100%;*/
+    padding-left: 22px;
+    height: 55px;
+    line-height: 55px;
+    float: left;
+    font-size: 18px;
+    font-weight: normal;
+    display: inline-block;
+    color: #51AFC9;
+    cursor: pointer;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+    -webkit-tap-highlight-color:transparent;
+}
+#addressSelect .tip .addSel_confirm {
+     /*width: 100%;*/
+     padding-right: 22px;
+     height: 55px;
+     line-height: 55px;
+     float: right;
+     font-size: 18px;
+     font-weight: normal;
+     display: inline-block;
+     /*color: #999;*/
+    color: #51AFC9;
+    cursor: pointer;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+    -webkit-tap-highlight-color:transparent;
+ }
+#addressSelect .tip .addSel_confirm.addSel_confirmBlue{
+    color: #51AFC9;
+}
+#addressSelect #address {
+    width: 100%;
+    height: 100%;
+}
+/*被选中的地址*/
+.selected-address {
+    width: 100%;
+    height: 50px;
+    line-height: 50px;
+    border-bottom: 1px solid #ededed;
+}
+.selected-address:before {
+    content: "";
+    display: table;
+}
+.selected-address:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+.selected-address li {
+    float: left;
+    height: 50px;
+    line-height: 48px;
+    text-align: center;
+    width: 33.3%;
+    padding-right: .3em;
+    padding-left: .3em;
+    color: #333;
+    border-bottom: 2px solid transparent;
+    font-size: 18px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    cursor: pointer;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+    -webkit-tap-highlight-color:transparent;
+}
+.selected-address li.active {
+    border-bottom-color: #51afc9;
+    color: #51afc9;
+}
+/*各级地址列表*/
+.address-content {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    /*加载中*/
+}
+.address-content ul {
+    display: block;
+    width: 100%;
+    /*height: 100%;*/
+    height: 280px;
+    overflow-y: auto;
+    padding-top: 8px;
+    padding-bottom: 88px;
+}
+.address-content ul li {
+    height: 38px;
+    line-height: 38px;
+    padding-left: 1em;
+    font-size: 17px;
+    width: 100%;
+    overflow-x: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    color: #666;
+    cursor: pointer;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+    -webkit-tap-highlight-color:transparent;
+}
+.address-content ul li.active{
+    color: #51afc9;
+}
+
+
+/*-----------------------------------保存提示弹窗--------------------------------*/
+.keepPop{width: 100%; height: 100%; overflow: hidden; background: rgba(0,0,0,.5); position: absolute; top:-60px; left:0; z-index: 999999; display:none; }
+.keepBox{width: 40%; height: 250px; background: #fff; position: absolute; z-index: 999999; top:50%; left:30%; margin-top: -125px; border-radius: 6px;}
+.keepTit{height: 55px;  width: 100%; font-size: 20px; color: #333; text-align: center; line-height: 55px; border-radius: 6px 6px 0px 0px;}
+.keepMain{height: 133px;  width: 100%; font-size: 18px; color: #666; text-align: center; line-height: 133px; border-bottom: 1px solid #d9d9d9; border-top: 1px solid #d9d9d9;}
+.keepBtns{width: 100%; height: 60px; text-align: center; box-sizing: border-box;}
+.keepBtns button{outline: none; border:none; width: 112px; height: 38px; border: 1px solid #51afc9; border-radius: 6px; font-size: 18px; color:#51afc9; background: #fff; margin-top:11px;}
+.keepCancel{margin-right:22px;}
+.keepBtns button.keepConfirm{color: #fff; background-color:#51afc9;}
+/*-----------------------------------改变input框默认值的颜色--------------------------------*/
+input::-webkit-input-placeholder { /* WebKit browsers*/
+   color:#333;font-size:14px;
+  }
+input:-moz-placeholder {  /* Mozilla Firefox 4 to 18*/
+    color:#333;
+}
+input::-moz-placeholder {  /* Mozilla Firefox 19+*/
+    color:#333;
+}
+input:-ms-input-placeholder { /* Internet Explorer 10+*/
+    color:#333;
+}
+.close{
+    width:33px;
+    height:33px;
+    position:absolute;
+    top:-10px;
+    right:-10px;
+}

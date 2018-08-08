@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>采购确认</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="format-detection" content="telephone=no" />
+    <link rel="stylesheet" href="http://dn.yunzhenshi.com/css/reset-min.css">
+    <link rel="stylesheet" href="../css/purchaseConfirmation.css?data=20180330"/>
+    <style>
+        [v-cloak]{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="content" v-cloak>
+        <div class="common_title">
+            <em @click="clickBack"><img src="../img/back.png" alt=""/></em>
+            <span>采购确认</span>
+        </div>
+
+        <!--收货信息-->
+        <div class="address_content">
+            <div class="drugPre_top">
+                <div class="medicine_center drugNameWrap mb22">
+                    <div class="addressIcon"></div>
+                    <div class="text_justify title">收&nbsp;&nbsp;货&nbsp;&nbsp;人</div><em>:</em>
+                    <div class="contFlex content_left">{{consigneeName}}<em class="numberMl">{{consigneePhone}}</em></div>
+                    <div class="editIconBtn"><i class="editIcon"></i></div>
+                </div>
+                <div class="medicine_center titleAdress mb22 address_content_box" :class="addressIdx==0?'address_height1':'address_height2'" v-for="(addressItem,addressIdx) in addressList">
+                    <div class="address_content_pos title">
+                        <div class="text_justify">
+                            <div class="leaveWordIcon" v-show="addressIdx==1"></div>
+                            <span>{{addressItem.addressName}}</span>
+                        </div>
+                        <em class="pt2">:</em>
+                    </div>
+                    <div class="pr22 contFlex address_content_pox_text">{{addressItem.addressMsg}}</div>
+                </div>
+            </div>
+        </div>
+
+        <!--药品列表-->
+        <div class="drug_list">
+            <div class="drug_list_content" v-for="(item,index) in list">
+                <div class="drug_list_title">
+                    <em class="icon_em"></em>
+                    <!--企业名称-->
+                    <span class="company_name">{{item.companyName}}</span>
+                    <!--姓名-->
+                    <span class="user_name common_color6">{{item.name}}</span>
+                    <!--电话-->
+                    <span class="iphone_span common_color6">{{item.phone}}</span>
+                </div>
+
+                <ul class="div_table">
+                    <li class="span_color">
+                        <span v-for="(titItem,titIdx) in titleList">{{titItem.titleName}}</span>
+                    </li>
+                    <li v-for="(medItem,medIdx) in item.dataList">
+                        <!--药品-->
+                        <span class="medicine_name">
+                            <div class="common_line table_div_top">{{medItem.medicinalName}}</div>
+                            <div class="common_line common_color9 commom_size14">{{medItem.medicinalCompany}}</div>
+                        </span>
+                        <!--规格*包装-->
+                        <span class="common_line common_line_pos common_color6 spec">
+                            <div class="common_line">{{medItem.norms==''?'':medItem.norms+'*'}}{{medItem.scaler}}{{medItem.smallUnit==''?'':medItem.smallUnit+'/'}}{{medItem.unit}}</div>
+                        </span>
+                        <!--有效期-->
+                        <span class="common_line_pos common_color6 Validitys Validity">{{medItem.validityTime}}</span>
+                        <!--单价-->
+                        <span class="common_line_pos Validitys">{{medItem.price}}元</span>
+                        <!--数量-->
+                        <span>
+                            <div class="drugHandle medicine_center">
+                                <div class="drugCount medicine_center">
+                                    <!--oninput="javascript:this.value=this.value.replace(/[^\d]/g,'')"  不可输入非数字   onafterpaste粘贴触发-->
+                                    <span class="jian medicine_center" @click="clickJian(medItem)"><i class="jianIcon"></i></span>
+                                    <input type="tel" v-model="medItem.amount" class="num_input" maxlength="4" min=1 @blur="getBlur" @focus="getFocus" @change="changeAmount(medItem)" oninput="javascript:this.value=this.value.replace(/[^\d]/g,'')">
+                                    <span class="jia medicine_center" @click="clickJia(medItem)"><i class="jiaIcon"></i></span>
+                                </div>
+                            </div>
+                        </span>
+                    </li>
+                    <li class="freight_li">
+                        <span class="common_color6">
+                            <em>运费 :</em>
+                            <input type="tel" v-model="item.freight"  ref="freight" class="num_input freight_em" maxlength="7" @change="changeFreight(item)" @blur="getBlur" @focus="getFocus1(item)"  v-on:input="resTest(item)">元
+                        </span>
+                    </li>
+                    <li class="freight_li TotalOrder">订单总额：<em>111</em>元</li>
+                </ul>
+            </div>
+            <div class="PaymentMethod">
+                <span>支付方式</span>
+                <span class="OPT"><i>在线支付</i><img src="../img/rightArrow.png"></span>
+            </div>
+        </div>
+
+        <!--创建询价单按钮-->
+        <div class="step_btn_box">
+            <em class="step_btn" @click="clickBtn">确认采购</em>
+        </div>
+
+        <!--确认按钮成功或失败提示-->
+        <div class="dialogue_alert" v-show="isMsgFlag">{{layerMsg}}</div>
+
+        <!--确认取消弹窗-->
+        <div class="delPop" v-show="isDelFlag">
+            <div class="delBox">
+                <header class="delTit">温馨提示</header>
+                <section class="delMain">确认采购药品吗？</section>
+                <footer class="delBtns">
+                    <button class="delCancel" @click="clickCancel">取消</button>
+                    <button class="delConfirm" @click="clickConfirm">确定</button>
+                </footer>
+            </div>
+        </div>
+        <!-- 支付弹框 -->
+        <div class="PaymentMethods">
+            <div class="PaymentMethods_main">
+                <p class="PaymentMethods_header">支付方式</p>
+                <p class="PaymentMethods_text">选择支付方式</p>
+                <p class="btns">
+                    <button class="Onlinepaymentbtn"><img src="../img/Onlinepayment.png" class="Onlinepayment">在线支付</button>
+                    <button class="CODbtn"><img src="../img/COD.png" class="COD">货到付款</button>
+                </p>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="../js/jquery-3.3.1.min.js"></script>
+<!--<script src="http://cdn.bootcss.com/vue/2.4.2/vue.js"></script>-->
+<script src="../js/vue.min.js"></script>
+<script src="../js/common.js?data=20180330"></script>
+<script src="../js/purchaseConfirmation.js?data=20180330" type="text/javascript"></script>
+</html>

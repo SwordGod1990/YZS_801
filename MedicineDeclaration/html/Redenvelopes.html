@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+	<meta name="format-detection" content="telephone=no"/>
+	<meta name="format-detection" content="email=no"/>
+	<title>红包活动</title>
+	<link rel="stylesheet" type="text/css" href="../css/reset.css">
+	<link rel="stylesheet" type="text/css" href="../js/mescroll.min.css">
+	<link rel="stylesheet" type="text/css" href="../css/Redenvelopes.css">
+</head>
+<body>
+	<div class="Redenvelopes">
+		<div class="Redenvelopes_header">
+			<img src="../img/arrowLeft.png" class="arrowLeft"/>
+			<span>红包活动</span>
+            <span class="Explains">活动说明</span>
+		</div>
+		<div class="Redenvelopes_bigheader">
+			<img src="../img/arrowLeft.png" class="arrowLeft"/>
+			<span class="activity">红包活动</span>
+            <span class="Explain">活动说明</span>
+            <p class="prompt">待领取金额</p>
+            <p class="prompt-text"></p>
+            <p class="receive"><span>已领取金额：</span><span></span></p>
+            <div class="finish">
+               <p><img src="../img/time.png"><span class="finish_text">活动时间：</span><span class="finished"></span></p>
+            </div>
+		</div>
+		<div class="Redenvelopes_main">
+			<div class="End">
+				<img src="../img/End.png">
+				<p>活动已结束，下次再来吧！</p>
+			</div>
+			<div class="main  mescroll" id="mescroll">
+				<p class="title"><img src="../img/Dot.png"><span>获取红包记录</span></p>
+				<div class="record" >
+					<ul class="record-main" id="dataList">
+					    <!-- <li>
+					    	<p class="record-time"><span>05-02至05-08</span></p>
+					    	<p class="record-money">¥50</p>
+					    	<p class="redpacket">获取红包(元)</p>
+					    	<div class="bottom">
+					    		<p><span>订单编号：</span><span>123456789</span></p>
+					    		<p><span>订单金额：</span><span>¥2800</span></p>
+					    	</div>
+					    </li>
+					    <li>
+					    	<p class="record-time"><span>05-02至05-08</span></p>
+					    	<p class="record-money">¥50</p>
+					    	<p class="redpacket">获取红包(元)</p>
+					    	<div class="bottom">
+					    		<p><span>订单编号：</span><span>123456789</span></p>
+					    		<p><span>订单金额：</span><span>¥2800</span></p>
+					    	</div>
+					    </li>
+					    <li>
+					    	<p class="record-time"><span>05-02至05-08</span></p>
+					    	<p class="record-money">¥50</p>
+					    	<p class="redpacket">获取红包(元)</p>
+					    	<div class="bottom">
+					    		<p><span>订单编号：</span><span>123456789</span></p>
+					    		<p><span>订单金额：</span><span>¥2800</span></p>
+					    	</div>
+					    </li>
+					    <li>
+					    	<p class="record-time"><span>05-02至05-08</span></p>
+					    	<p class="record-money">¥50</p>
+					    	<p class="redpacket">获取红包(元)</p>
+					    	<div class="bottom">
+					    		<p><span>订单累计金额：</span><span>¥2800</span></p>
+					    		<p><span></span><span></span><i>详情</i><img src="../img/Bitmap@2x.png"></p>
+					    	</div>
+					    </li>
+					    <li>
+					    	<p class="record-time"><span>05-02至05-08</span></p>
+					    	<p class="record-money">¥50</p>
+					    	<p class="redpacket">获取红包(元)</p>
+					    	<div class="bottom">
+					    		<p><span>订单编号：</span><span>123456789</span></p>
+					    		<p><span>订单金额：</span><span>¥2800</span></p>
+					    	</div>
+					    </li>
+					    <li>
+					    	<p class="record-time"><span>05-02至05-08</span></p>
+					    	<p class="record-money">¥50</p>
+					    	<p class="redpacket">获取红包(元)</p>
+					    	<div class="bottom">
+					    		<p><span>订单累计金额：</span><span>¥2800</span></p>
+					    		<p><span></span><span></span><i>详情</i><img src="../img/Bitmap@2x.png"></p>
+					    	</div>
+					    </li> -->
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="btn">
+			<button>立即领取红包</button>
+		</div>
+	</div>
+	<!-- 二维码弹层 -->
+	<div class="QRcode">
+		<div class="QRcode-main">
+			<p class="QRcodeheader"><span>“致医商城”公众号二维码</span><span class="close">×</span></p>
+			<p class="QRcodeimg"><img src="../img/ceQRCode.jpg" class="code"></p>
+			<p class="QRcode-txt">微信扫码关注“致医商城”公众号领取红包</p>
+			
+		</div>
+	</div>
+	<!-- 累计订单详情弹框 -->
+	<div class="accumulative">
+		<div class="accumulative_main">
+			<p class="accumulativeheader"><span>04-02至04-08获的红包订单</span><span class="shut">×</span></p>
+			<div class="accumulativeMain">
+			    <div class="accumulativemain">
+			    	<table class="accumulativemain_header">
+				        <thead>
+					        <tr>
+						        <td>订单编号</td>
+						        <td>采购时间</td>
+						        <td>入库时间</td>
+						        <td>订单金额(元)</td>
+					        </tr>
+				        </thead>
+				    </table>
+				    <div class="mescroll" id="mescrolls" style="margin-top:0px;">
+				    <table class="accumulativemain_tbody">
+				        <tbody id="dataList">
+					        <!-- <tr>
+						        <td>9876678987766678</td>
+						        <td>18-06-15  11:09:09</td>
+						        <td>18-06-15  11:09:09</td>
+						        <td>345</td>
+					        </tr>
+					        <tr>
+						        <td>9876678987766678</td>
+						        <td>18-06-15  11:09:09</td>
+						        <td>18-06-15  11:09:09</td>
+						        <td>345</td>
+					        </tr>
+					        <tr>
+						        <td>9876678987766678</td>
+						        <td>18-06-15  11:09:09</td>
+						        <td>18-06-15  11:09:09</td>
+						        <td>345</td>
+					        </tr>
+					        <tr>
+						        <td>9876678987766678</td>
+						        <td>18-06-15  11:09:09</td>
+						        <td>18-06-15  11:09:09</td>
+						        <td>345</td>
+					        </tr>
+					        <tr>
+						        <td>9876678987766678</td>
+						        <td>18-06-15  11:09:09</td>
+						        <td>18-06-15  11:09:09</td>
+						        <td>345</td>
+					        </tr>
+					        <tr>
+						        <td>9876678987766678</td>
+						        <td>18-06-15  11:09:09</td>
+						        <td>18-06-15  11:09:09</td>
+						        <td>345</td>
+					        </tr>
+					        <tr>
+						        <td>9876678987766678</td>
+						        <td>18-06-15  11:09:09</td>
+						        <td>18-06-15  11:09:09</td>
+						        <td>345</td>
+					        </tr>
+					        <tr>
+						        <td>9876678987766678</td>
+						        <td>18-06-15  11:09:09</td>
+						        <td>18-06-15  11:09:09</td>
+						        <td>345</td>
+					        </tr>
+					        <tr>
+						        <td>9876678987766678</td>
+						        <td>18-06-15  11:09:09</td>
+						        <td>18-06-15  11:09:09</td>
+						        <td>345</td>
+					        </tr>
+					        <tr>
+						        <td>9876678987766678</td>
+						        <td>18-06-15  11:09:09</td>
+						        <td>18-06-15  11:09:09</td>
+						        <td>345</td>
+					        </tr> -->
+				        </tbody>
+			        </table>
+			        </div>
+			    </div>
+				 <!-- 分页 -->
+                <!-- <div class="content_rightPage">
+                    <div class="checkResult">共<span class="checkNum"></span>条数据</div>
+                    <div class="page page_current"></div>
+                </div> -->
+			</div>
+			<p class="accumulativetext">累计订单金额：<span></span>元</p>
+		</div>
+	</div>
+	<!--吐司提示弹层-->
+		<div class="dialogue_alert" style="display: none;">
+			<p class="alert"></p>
+		</div>
+	<script src="../js/jquery-3.3.1.min.js"></script>
+	<script src="../js/common.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../js/mescroll.min.js"></script>
+    <script src="../js/dropload.min.js"></script>
+	<script src="../js/Redenvelopes.js"></script>
+</body>
+</html>

@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>询价功能介绍</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="format-detection" content="telephone=no" />
+    <link rel="stylesheet" href="http://dn.yunzhenshi.com/css/reset-min.css">
+    <link rel="stylesheet" href="../css/swiper-4.1.6.min.css"/>
+    <style>
+        [v-cloak]{display:none}
+    </style>
+    <link rel="stylesheet" href="../css/enquiryFunIntroduction.css?data=20180330"/>
+</head>
+<body>
+    <div id="content" v-cloak>
+        <div class="common_title">
+            <em @click="clickBack"><img src="../img/back.png" alt=""/></em>
+            <span>询价功能介绍</span>
+        </div>
+
+        <div class="swiper_content">
+            <!--使用swiper 布局改变  使用此div覆盖步骤白色背景-->
+            <div style="position: absolute;left: 0;top: 0;width:100%;height: 115px;background: #ffffff"></div>
+            <div class="img_content">
+
+                <div class="swiper-container">
+                    <!-- 步骤 -->
+                    <div class="title_step swiper-paginationt"></div>
+                    <!--介绍图-->
+                    <div class="swiper-wrapper">
+                        <img :src="'../img/'+item.imgSrc+'.png'" alt="" class="step_img swiper-slide"  v-for="(item,index) in list"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="step_btn_box">
+            <em class="step_btn" @click="clickBtn">创建询价单</em>
+        </div>
+    </div>
+    <!-- 红包说明入口 -->
+<img src="../img/redpacket.png" class="redpacket">
+</body>
+<script src="../js/jquery-3.3.1.min.js"></script>
+<script src="../js/common.js" type="text/javascript" charset="utf-8"></script>
+<!--<script src="http://cdn.bootcss.com/vue/2.4.2/vue.js"></script>-->
+<script src="../js/vue.min.js"></script>
+<script src="../js/swiper-4.1.6.min.js"></script>
+<script>
+    //窗口改变刷新当前页面
+    $(window).resize(function() {
+        window.location.reload();
+    });
+    //动态改变swiper_content高度  以及title_step 的margin_bottom
+    var wH = window.innerHeight;// 当前窗口的高度
+    var imgContentH = $(".img_content").height()  //介绍图片高度
+    $(".title_step").css({"marginBottom":(wH-245-imgContentH)/2+"px"})
+    $(".swiper_content").css({"height":wH-130+"px"})
+
+    var that = null
+    new Vue({
+        el:'#content',
+        data:{
+            list:[
+                { step:'第一步',stepMsg:'创建询价单',imgSrc:'stepImg1' },
+                { step:'第二步',stepMsg:'分享询价单',imgSrc:'stepImg2' },
+                { step:'第三步',stepMsg:'一键采购',imgSrc:'stepImg3' }
+            ]
+        },
+        mounted: function(){
+            that = this
+        },
+        methods: {
+            //点击创建询价单跳转
+            clickBtn: function(){
+                location.href = 'inquiryCreate.html'
+            },
+            //点击返回  返回上一级
+            clickBack: function(){
+                //调用 ios方法
+                if (/(iPhone|iPad|iPod|iOS)/i.test(navigator.userAgent)) {
+                    window.webkit.messageHandlers.closefullCallback.postMessage("closefullCallback");
+                //调用 安卓 方法
+                } else if (/(Android)/i.test(navigator.userAgent)) {
+                    android.go_back()
+                //pc
+                } else {
+//                   window.history.go(-1)
+                    window.csfunction();  //调用pc的返回方法
+                };
+            }
+        }
+    })
+
+    var mySwiper = new Swiper ('.swiper-container', {
+        direction: 'horizontal',
+        loop: true,
+        autoplay: {
+            delay: 2000,//2秒切换一次
+            disableOnInteraction: false,//滑动后继续自动切换
+        },
+
+        // 如果需要分页器
+        pagination: {
+            el: '.title_step',
+            clickable: true,
+            clickableClass : 'my-pagination-clickable',
+            renderBullet: function (index, className) {
+                return '<span class="' + className + '">' + (index + 1) + '</span>';
+            },
+        },
+    })
+    //动态改变 swiper 分页器
+    $(function(){
+        for( var i=0;i<$(".title_step .swiper-pagination-bullet").length;i++ ){
+            $(".title_step .swiper-pagination-bullet").eq(i).html( that.list[i].step+'<p class="step_word">'+that.list[i].stepMsg+'</p>')
+        }
+    })
+//红包入口
+  // var url=window.location.href;  //获取原生传过来的诊所id
+//var url="http://192.168.31.199/MedicineDeclaration/html/shoppingList.html?clinicId=110288f4a5160a0520151656ed0panda&clinicName=修改开发研发中心测试诊所3&clinicEmployId=30288f4a5160a0520151656ed0panda1&realName=李涛2号";  //获取原生传过来的诊所id
+/*http://192.168.31.121/MedicineDeclaration/html/enquiryFunIntroduction.html*/
+/*110288f4a5160a0520151656ed0panda 30288f4a5160a0520151656ed0panda1 修改开发研发中心测试诊所3 李涛2号*/
+// url=decodeURIComponent(url);
+// if(getUrlValue(url, "clinicId")){
+//     var clinicIdNumber=getUrlValue(url, "clinicId");
+//     localStorage.setItem("clinicIdStorage",clinicIdNumber);   //存下clinicId 
+// }
+// var getlocalStorage={//取值
+//     "clinicIdVal":localStorage.getItem("clinicIdStorage")
+// }
+// $.ajax({
+//     url:commonUrl+'redPacketInfo/isShowActivePage?clinicId='+getlocalStorage.clinicIdVal,
+//     type:'post',
+//     success:function(datas){
+//        var data=eval("("+datas+")")
+//        if(data.resultCode=="0000"){
+//           $(".redpacket").show()
+//           $(".redpacket").on("click",function(){
+            
+//              if(data.listCode=="1001"){
+//                 window.location.href='../html/Redenvelopes.html?clinicId='+getlocalStorage.clinicIdVal;
+//             }else if(data.listCode=="1002"){
+//                  window.location.href='../html/redpacket.html';
+//              }
+//           })
+//        }else if(data.resultCode=="0001"){
+//            $(".redpacket").hide()
+//        }
+
+//     },
+//     error:function(){
+//         toastBox("请求失败！");
+//     }
+// })
+</script>
+</html>

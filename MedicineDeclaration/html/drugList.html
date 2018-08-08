@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<title>药报单-询价单</title>
+		<link rel="stylesheet" type="text/css" href="../css/reset.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/shoppingList.css"/>
+	</head>
+	<body class="shopListBody hide">
+		<div class="header">
+     		<img src="../img/arrowLeft.png" class="arrowLeft"/>
+     		<div class="tab">
+				<div class="tabLeft">询价单</div>
+				<div class="tabRight">采购单</div>
+     		</div>
+     		<img src="../img/plus.png"  class="plus_icon"/>
+     		<p class="new">新建</p>
+		</div>
+		<ul class="drug_list">
+		</ul>
+
+		<div class="pop_up hide">
+			<div class="pop_header">
+				<p>采购清单二维码</p>
+			</div>
+			<div class="pop_content">
+				<p class="clinicName"></p>
+				<h3>采购清单（共<i class="medicinalTypeNum"></i>种药品）</h3>
+				<ul class="pop_content_list">
+
+				</ul>
+				<div class="codeBox">
+					<div  id="qrcode">
+
+					</div>
+				</div>
+				<img src="../img/delIcon.png" alt="" class="del_icon" onclick="closePop()"/>
+			</div>
+			<div class="tips">
+				<p>微信扫码二维码</p>
+				<h4>分享采购单给供货商进行询价</h4>
+			</div>
+			<div  class="pop_footer">
+
+			</div>
+		</div>
+	    <div class="mask hide"></div>
+		<div class="delPop">
+			<div class="delBox">
+				<header class="delTit">温馨提示</header>
+				<section class="delMain">确认删除询价单，删除后不可恢复</section>
+				<footer class="delBtns">
+					<button class="delCancel">取消</button>
+					<button class="delConfirm">确定</button>
+				</footer>
+			</div>
+		</div>
+		<!--吐司提示弹层-->
+		<div class="dialogue_alert" style="display: none;">
+			<p class="alert"></p>
+		</div>
+	</body>
+	<script src="../js/jquery-3.3.1.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="../js/common.js" type="text/javascript" charset="utf-8"></script>
+	<script src="../js/drugList.js" type="text/javascript" charset="utf-8"></script>
+	<script src="../js/qrcode.js" type="text/javascript" charset="utf-8"></script>
+</html>

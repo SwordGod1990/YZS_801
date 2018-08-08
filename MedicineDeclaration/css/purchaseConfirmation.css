@@ -1,0 +1,397 @@
+html,body{
+    width: 100%;
+    height: 100%;
+    font-family: "微软雅黑";
+    /*font-family: PingFangSC-Regular;*/
+}
+html{
+    position: relative;
+}
+.flex_box{
+    display: flex;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    flex-flow: row wrap-reverse;
+}
+#content{
+    width: 100%;
+    height: 100%;
+    background: #eeeeee;
+}
+/*采购确认title*/
+.common_title{
+    width: 100%;
+    height:60px;
+    line-height: 60px;
+    background: #51afc9;
+    color: #ffffff;
+    font-size: 19px;
+    text-align: center;
+}
+.common_title em{
+    display: inline-block;
+    width: 60px;
+    float: left;
+    cursor: pointer;
+}
+.common_title span{
+    margin-left:-60px;
+}
+.common_title img{
+    width: 13px;
+    height:23px;
+}
+/*收货地址*/
+.address_content{
+    background: #ffffff;
+    font-size: 18px;
+    color: #333333;
+}
+.medicine_center {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-align: center;
+    -moz-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -moz-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-tap-highlight-color: rgba(0,0,0,0)!important;
+    -webkit-tap-highlight-color:transparent!important;
+    min-height: 24px;
+    _height: 24px;
+}
+.drugCount{
+    cursor: pointer;
+}
+.drugPre_top{
+    padding:22px;
+}
+.drugPre_top .title{
+    width:80px;
+    margin-left: 10px;
+}
+.drugPre_top .drugNameWrap{
+    position: relative;
+}
+.drugPre_top .contFlex{
+    margin-left: 22px;
+    flex: 1;
+}
+.content_left{ margin-left: 18px!important;}
+.drugPre_top .medicine_center:last-child{
+    margin-bottom: 0!important;
+}
+.drugPre_top .numberMl{
+    margin-left: 32px;
+}
+.addressIcon{
+    display: block;
+    width: 12px;
+    height: 16px;
+    background:url("../img/icon5.png") no-repeat;
+    background-size: 100%;
+}
+.leaveWordIcon{
+    position: absolute;
+    top: 7px;
+    left: -20px;
+    display: block;
+    width: 13px;
+    height: 12px;
+    background:url("../img/icon3.png") no-repeat;
+    background-size: 100%;
+}
+.leaveWordArea{
+    display: block;
+    border: 1px solid #d9d9d9;
+    border-radius: 6px;
+    box-sizing: border-box;
+    width: 100%;
+    height: 60px;
+    padding: 10px;
+}
+.text_justify {
+    overflow: hidden;
+    text-align: justify;
+    text-align-last: justify;
+}
+.mb22{
+    margin-bottom:20px;
+}
+.address_content_box{
+    position: relative;
+}
+.address_content_pos{
+    position: absolute;
+    top: 0;
+    left: 10px;
+}
+.address_content_pox_text{
+    overflow:hidden;
+    text-overflow:ellipsis;
+    display:-webkit-box;
+    -webkit-box-orient:vertical;
+    -webkit-line-clamp:2;
+    margin-left: 123px!important;
+}
+.pt2{
+    position: absolute;
+    right: -7px;
+    top: 0;
+}
+/*药品列表*/
+.drug_list{
+    width: 100%;
+    overflow-y: auto;
+    font-size: 18px;
+    color: #333333;
+}
+.drug_list_content{
+    background:#fff;
+    margin:25px 0px 0 0px;
+    overflow-x:hidden;
+}
+.drug_list_content:last-child{
+    margin-bottom: 25px;
+}
+.icon_em{
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border-radius: 8px;
+    background: #51afc9;
+    position: relative;
+    top: -3px;
+}
+.drug_list_title{
+    padding:20px 0px 15px 22px;
+   /* background:#fff;*/
+   /* margin-bottom: 13px;*/
+}
+.company_name{
+    margin-left: 8px;
+}
+.iphone_span{
+    margin-left: 22px;
+}
+.user_name{
+    margin-left: 78px;
+}
+.common_color6{
+    color: #666666;
+}
+.common_color9{
+    color: #999999;
+}
+.commom_size14{
+    font-size: 14px;
+}
+.span_blod{
+    font-weight: 900;
+}
+.span_color{ background-color: #f6f6f6;}
+.drugCount .jian,
+.drugCount .jia{
+    width: 55px;
+    height: 40px;
+    border: 1px solid #d9d9d9;
+}
+.drugCount .jian{
+    border-bottom-left-radius: 6px;
+    border-top-left-radius: 6px;
+    background:url("../img/icon7.png") no-repeat center center;
+    background-size: 20px 2px;
+}
+.drugCount .jia{
+    border-bottom-right-radius: 6px;
+    border-top-right-radius: 6px;
+    background:url("../img/icon6.png") no-repeat center center;
+    background-size: 20px 20px;
+}
+.num_input{
+    display: block;
+    width: 70px;
+    height: 40px;
+    border: 1px solid #d9d9d9;
+    margin: 0 5px;
+    font-size: 18px;
+    color: #666;
+    text-align: center;
+    -webkit-tap-highlight-color: rgba(0,0,0,0)!important;
+    -webkit-tap-highlight-color:transparent!important;
+    cursor: pointer;
+}
+.div_table{
+   /* width: 100%;*/
+    table-layout:fixed;
+    word-wrap:break-word;
+    font-size: 18px;
+    border-radius: 6px;
+    background: #ffffff;
+    margin:0 22px;
+}
+.div_table li{
+    padding: 18px 22px;
+    border: 1px solid #d9d9d9;
+    border-top:0;
+    -webkit-tap-highlight-color: rgba(0,0,0,0)!important;
+    -webkit-tap-highlight-color:transparent!important;
+}
+.div_table li:first-child{
+    border-top:1px solid #d9d9d9;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+    text-align: center;
+}
+.div_table li:nth-last-child(3){
+    border-bottom-left-radius: 6px;
+    border-bottom-right-radius: 6px;
+}
+.div_table li:last-child,.div_table li:nth-last-child(2){
+    border:0;
+}
+.div_table li span{
+    display: inline-block;
+    width: 19%;
+}
+.span_color span:first-child{
+    text-align:left;
+    text-indent:-20px;
+}
+.medicine_name,.spec{
+    text-align: left;
+}
+.Validitys{
+    text-align:center;
+}
+.Validity{
+    margin-left:10px;
+}
+.common_line{
+    overflow:hidden;
+    text-overflow:ellipsis;
+    display:-webkit-box;
+    -webkit-box-orient:vertical;
+    -webkit-line-clamp:1;
+
+}
+.spec{
+    display:inline-block;
+    width: 19%;
+    text-align:center;
+    text-indent:15px;
+}
+.common_line_pos{
+    position: relative;
+    top: -14px;
+    left: 0;
+}
+.table_div_top{
+    margin-bottom: 10px;
+}
+.freight_li{
+    text-align: right!important;
+    border-bottom-left-radius: 6px;
+    border-bottom-right-radius: 6px;
+    padding: 10px 0px!important;
+    border:0;
+}
+.freight_em{
+    display: inline-block;
+    border-radius: 6px;
+    width: 78px;
+    height: 38px;
+}
+/*确认采购按钮*/
+.step_btn_box{
+    /*position: fixed;*/
+    /*left: 0;*/
+    /*bottom: 0;*/
+    width: 100%;
+    background: #ffffff;
+    text-align: center;
+    padding: 10px 0;
+    border-top: 1px solid #d9d9d9;
+}
+.step_btn{
+    display: inline-block;
+    width: 174px;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    background:#51afc9 ;
+    font-size: 20px;
+    border-radius: 6px;
+    color: #ffffff;
+    cursor: pointer;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+    -webkit-tap-highlight-color:transparent;
+}
+/*确认按钮成功或失败提示*/
+.dialogue_alert{
+    border-radius: 5px;
+    position: fixed;
+    z-index: 3000;
+    /*margin-left: -100px;*/
+    top: 50%;
+    margin-top: -15px;
+    width:185px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    background: rgba(00,00,00,0.7);
+    color: #ffffff;
+    font-size: 18px;
+}
+.TotalOrder{color:#666;}
+.TotalOrder em{color:#151515;}
+.PaymentMethod{
+    width:100%;
+    height:62px;
+    background:#fff;
+    margin-top:20px;
+    line-height:62px;
+}
+.PaymentMethod span:nth-child(1){
+    color:#666;
+    font-size:18px;
+    margin-left:22px;
+}
+.PaymentMethod span:last-child{
+   float:right;
+   margin-right:20px;
+}
+.PaymentMethod img{
+    width:9px;
+    height:16px;
+    margin-left:5px;
+}
+/*确认取消弹窗*/
+.delPop{width: 100%; height: 100%; overflow: hidden; background: rgba(0,0,0,.5); position: absolute; top:-60px; left:0; z-index: 99999; }
+.delBox{width: 40%; height: 250px; background: #fff; position: absolute; z-index: 999999; top:50%; left:30%; margin-top: -125px; border-radius: 6px;}
+.delTit{height: 55px;  width: 100%; font-size: 20px; color: #333; text-align: center; line-height: 55px; border-radius: 6px 6px 0 0;font-weight: 900;}
+.delMain{height: 133px;  width: 100%; font-size: 18px; color: #666; text-align: center; line-height: 133px; border-bottom: 1px solid #d9d9d9; border-top: 1px solid #d9d9d9;}
+.delBtns{width: 100%; height: 60px; text-align: center; box-sizing: border-box;}
+.delBtns button{outline: none; border:none; width: 112px; height: 38px; border: 1px solid #51afc9; border-radius: 6px; font-size: 18px; color:#51afc9; background: #fff; margin-top:11px;}
+.delCancel{margin-right:22px;}
+.delBtns button.delConfirm{color: #fff; background-color:#51afc9;}
+/*支付弹框*/
+.PaymentMethods{width: 100%; height: 100%; overflow: hidden; background: rgba(0,0,0,.5); position: absolute; top:-60px; left:0; z-index: 999999;padding-bottom:70px;display:none }
+.PaymentMethods_main{width:80%; height: 360px; background: #fff; position: absolute; z-index: 999999; top:0;right:0;bottom:0;left:0;margin:auto; border-radius: 6px;}
+.PaymentMethods_header{width:100%;height:55px;background: #51AFC9;text-align:center;color:#fff;font-size:20px;line-height:55px;border-top-left-radius: 6px;border-top-right-radius: 6px;}
+.PaymentMethods_text{font-size: 20px;color: #666666;text-indent:22px;margin-top:43px;}
+.btns{width:526px;height:70px;margin:44px auto;}
+.btns button{width:200px;height:70px;font-size:20px;}
+.btns button:nth-child(1){background: #66CBF1;border-radius: 6px;border:0;color:#fff;}
+.btns button img{margin-right:20px;width:27px;height:20px;}
+.btns button:nth-child(2){border:1px solid #D9D9D9;border-radius: 6px;background:#fff;margin-left:122px;}

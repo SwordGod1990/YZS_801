@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+	<meta name="format-detection" content="telephone=no"/>
+	<meta name="format-detection" content="email=no"/>
+	<title>待收货详情</title>
+	<link rel="stylesheet" type="text/css" href="../css/reset.css"/>
+	<link rel="stylesheet" type="text/css" href="../css/particulars.css?data=20180327">
+</head>
+<body>
+	<div class="particulars_header">
+		<img src="../img/arrowLeft.png" class="arrowLeft"/>
+		<span></span>
+	</div>
+	<div class="particulars">
+
+		<!--<div class="Order">
+			<p class="Order_number">
+			    <img src="../img/dingdan@2x.png" class="OrderImg">
+				<span class="identifier">订单编号：</span>
+				<span class="identifiers"></span>
+			</p>
+			<p class="Purchasing_time">
+				<span class="Purchasing"></span>
+				<span class="Noreceived"></span>
+			</p>
+		</div>-->
+		<div class="Goods_receipt">
+			<p class="Consignee">
+				<img src="../img/Consignee.png">
+				<span>收&nbsp;&nbsp;货&nbsp;&nbsp;人：</span>
+				<span class="ConsigneeName"></span>
+				<span class="Consigneetel"></span>
+			</p>
+			<p class="Receiving_address address_height24">
+			   <span class="Receiving">收货地址：</span>
+               <span class="address"></span>
+            </p>
+			<p class="message address_height24">
+				
+				<span class="leave_word"><img src="../img/message.png">留&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;言：</span>
+				<span class="leave_words"></span>
+            </p>
+            <div class="drug_waits"></div>
+            <div class="drug_total">还剩<span></span><font>天</font>自动确认收货</div>
+            <div class="drug_totals">退款成功</div>
+        </div>
+		<p class="Company_name">
+		    <img src="../img/Dot.png">
+			<span class="Companyname"></span>
+			<span class="Contacts"></span>
+			<span class="ContactNumber"></span>
+		</p>
+		<div class="Drug_details">
+			<ul class="header header_bg">
+				<li class="Drugs">药品</li>
+				<li class="SPTPG">规格*包装</li>
+				<li class="Validity">效期</li>
+				<li class="Unit-Price">单价</li>
+				<li class="Number">数量</li>
+			</ul>
+            <!-- <ol class="main">
+            	<li>
+            		<p class="drugName">氨咖黄敏胶囊胶囊囊氨咖黄敏胶囊胶囊囊</p>
+                    <p class="companyName">山西双人药业有限责任公司山西双人药业有限责任公司</p>
+            	</li>
+            	<li>
+            		<p>0.4g*36粒*2板／0.4g*36粒*2板</p>
+            	</li>
+            	<li>
+            	    <p>2018-03-21</p>
+            	</li>
+            	<li>
+            		<span>180.00</span>元
+            	</li>
+            	<li>
+            		28盒
+            	</li>
+            </ol> -->
+            <p class="freight">
+            	运费：<span></span>元
+            </p>
+            <!-- <p class="totals">
+                订单总额：<span></span>元
+            </p> -->
+		</div>
+        <div class="drug_order">
+            <p>
+                订单编号：<span class="drug_list"></span>
+            </p>
+           <p class="drug_base">
+               采购时间：<span class="drug_purchase"></span>
+           </p>
+            <p class="drug_pay">
+                支付方式：<span class="drug_method"></span>
+            </p>
+            <p class="drug_base drug_day">
+                支付时间：<span class="drug_time"></span>
+            </p>
+            <p class="drug_deliver">
+                发货时间：<span class="drug_off"></span>
+            </p>
+            <p class="drug_receive">
+                收货时间：<span class="drug_on"></span>
+            </p>
+            <p class="drug_base drug_return">
+                退款时间：<span class="drug_hour"></span>
+            </p>
+        </div>
+		<div class="footer">
+			 <button>确认收货</button>
+		</div>
+        <div class="drug_store">
+            <button>一键入库</button>
+        </div>
+	</div>
+	<div class="delPop">
+   <div class="delBox delLayer">
+    <header class="delTit">温馨提示</header>
+    <section class="delMain">确认收货吗？</section>
+    <footer class="delBtns">
+     <button class="delCancel">取消</button>
+     <button class="delConfirm">确定</button>
+    </footer>
+   </div>
+  </div>
+  <!--吐司提示弹层-->
+		<div class="dialogue_alert" style="display: none;z-index: 99999">
+			<p class="alert"></p>
+		</div>
+    <!--药品入库-->
+    <div class="drug_layer hide"></div>
+    <div class="drug_storage hide">
+        <div class="drug_title">待入库药品</div>
+        <div class="drug_content">
+            <div class="drug_caption">
+                <span></span>
+                <font>供货商：<label></label></font>
+            </div>
+            <div class="drug_menu">
+                <div class="drug_subject medicine_center">
+                    <span>药品信息</span>
+                    <span>单价</span>
+                    <span>数量</span>
+                </div>
+                <div class="drug_bill">
+
+                </div>
+            </div>
+            <div class="drug_bottom medicine_center">
+                <div class="drug_all clearfix">
+                    <div class="drug_choice">
+                        <input type="hidden" name="" value="" checked="checked">
+                        <label class=""></label>
+                    </div>
+                    <div class="drug_check">全选</div>
+                </div>
+                <span class="drug_wait">稍后入库</span>
+                <span class="drug_once">立即入库</span>
+                <font class="drug_notice hide">立即入库</font>
+            </div>
+        </div>
+    </div>
+	  <script src="../js/jquery-3.3.1.min.js" type="text/javascript" charset="utf-8"></script>
+	  <script src="../js/common.js" type="text/javascript" charset="utf-8"></script>
+	  <script src="../js/particulars.js" type="text/javascript" charset="utf-8"></script>
+</body>
+</html>

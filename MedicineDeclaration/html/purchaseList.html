@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<title>药报单-采购单</title>
+		<link rel="stylesheet" type="text/css" href="../css/reset.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/shoppingList.css?56"/>
+	</head>
+	<body class="shopListBody">
+		<div class="header">
+     		<img src="../img/arrowLeft.png" class="arrowLeft"/>
+     		<div class="tab">
+				<div class="medList">询价单</div>
+				<div class="buyList">采购单</div>
+     		</div>
+     		<!-- <img src="../img/plus.png"  class="plus_icon newClick"/>
+     		<p class="new newClick">新建</p> -->
+		</div>
+        <ul class="purchase_caption clearfix">
+			<li date-status="5">待支付<span class="purchase_current"></span></li>
+            <li date-status="0">待发货<span></span></li>
+            <li date-status="1">待收货<span></span></li>
+            <li date-status="2">已收货<span></span></li>
+			<li date-status="3">交易关闭<span></span></li>
+        </ul>
+		<!--采购单列表-->
+		<div class="purchase_list">
+			<!--采购单缺省页-->
+			<div class="default_page">
+				<div class="default_page_main">
+					<div class="purchase_default"><img src="../img/purchase_default.png" alt=""/></div>
+					<div class="purchase_txt">亲，您还没有采购单哟</div>
+				</div>
+			</div>
+		</div>
+
+		<!--吐司提示弹层-->
+		<div class="dialogue_alert" style="display: none;">
+			<p class="alert"></p>
+		</div>
+		<!-- 红包说明入口 -->
+		<img src="../img/redpacket.png" class="redpacket">
+	</body>
+	<script src="../js/jquery-3.3.1.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="../js/common.js" type="text/javascript" charset="utf-8"></script>
+	<script src="../js/purchaseList.js" type="text/javascript" charset="utf-8"></script>
+</html>
